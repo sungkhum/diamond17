@@ -1226,7 +1226,7 @@ export class GlobalVarsService {
     this.usdPerBitcoinExchangeRate = 10000;
     this.defaultFeeRateNanosPerKB = 1000.0;
 
-    this.localNode = this.backendApi.GetStorage(this.backendApi.LastLocalNodeKey);
+    this.localNode = "node.deso.org";
 
     if (!this.localNode) {
       const hostname = (window as any).location.hostname;
@@ -1236,7 +1236,7 @@ export class GlobalVarsService {
         this.localNode = `${hostname}:18001`;
       }
 
-      this.backendApi.SetStorage(this.backendApi.LastLocalNodeKey, this.localNode);
+      this.backendApi.SetStorage(this.backendApi.LastLocalNodeKey, "node.deso.org");
     }
 
     route.queryParams.subscribe((queryParams) => {
